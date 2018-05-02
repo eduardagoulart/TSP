@@ -1,6 +1,6 @@
 from haversine import haversine
 
-class Get_distances:
+class Distances:
 
     def __init__(self, arquivo):
         self.arquivo = arquivo
@@ -13,14 +13,23 @@ class Get_distances:
             valores[i] = [int(valores[i][0]), int(valores[i][1])]
         ref_arquivo.close()
         return valores
+        '''
+        ref_arquivo = open(self.arquivo, "r")
+        valores = [(linha[0],linha[1], linha[2]) for linha in ref_arquivo]
+        ref_arquivo.close()
+        return valores
+        '''
+
 
     def calcula_distancia(self):
         leitura = self.ler_arquivo()
         dist = [haversine(leitura[i], leitura[j]) for i in range(0, len(leitura))
-                                                  for j in range(0, len(leitura))]
-
+                                                 for j in range(0, len(leitura))]
+        #dist = haversine(self.grafo()[0])
         return dist
 
 if __name__ == "__main__":
-    obj = Get_distances("instancias.txt")
+    obj = Distances("instancias.txt")
+    leitura = obj.ler_arquivo()
     print(obj.calcula_distancia())
+
