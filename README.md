@@ -1,6 +1,8 @@
 # README
+Python 2.7.11
 ```
-pip install haversine
-pip install python-igraph
-pip install pyeasyga   
+easy_install pyevolve 
+pip install Pillow
 ```
+
+Utilizamos a biblioteca PyEvolve 0.6c11
